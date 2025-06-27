@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply antialiased text-base;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Animations */
+.hover-scale {
+  @apply transition-transform duration-300;
+}
+
+.hover-scale:hover {
+  @apply transform scale-105;
+}
+
+.hover-shadow {
+  @apply transition-shadow duration-300;
+}
+
+.hover-shadow:hover {
+  @apply shadow-lg;
+}
+
+.delay-100 {
+  transition-delay: 100ms;
+}
+
+.delay-200 {
+  transition-delay: 200ms;
+}
+
+.delay-300 {
+  transition-delay: 300ms;
+}
+
+/* Article Content Styling - "New York Times" Inspired */
+.article-content {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: #333; /* Dark gray instead of pure black for text */
+}
+
+.article-content h1, .article-content h2, .article-content h3 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Strong sans-serif for headers */
+  font-weight: 700;
+  text-wrap: balance; /* Balance lines for better visual flow */
+}
+
+.article-content h1 {
+  @apply text-4xl md:text-5xl font-bold mb-4 text-gray-900;
+}
+
+.article-content h2 {
+  @apply text-3xl mt-12 mb-2 text-gray-800;
+  border-bottom: 1px solid #ddd; /* Add a subtle separator */
+  padding-bottom: 0.5rem;
+}
+
+.article-content h3 {
+  @apply text-xl font-bold mt-8 mb-3 text-gray-700;
+  text-transform: uppercase; /* Uppercase for a stylistic touch */
+  letter-spacing: 0.05em;
+}
+
+.article-content p {
+  @apply text-lg leading-loose mb-6;
+  text-align: justify;
+}
+
+.article-content a {
+  @apply text-emerald-700 font-semibold;
+  text-decoration: none;
+  border-bottom: 1px solid #10b981;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.article-content a:hover {
+    background-color: #d1fae5;
+}
+
+.article-content blockquote {
+  @apply border-l-4 border-emerald-500 pl-6 my-8 text-2xl;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: italic;
+  color: #555;
+}
+
+.article-content ul {
+  @apply list-disc list-inside space-y-2 my-6 pl-4 text-lg;
+}
+
+.article-content .lead {
+  @apply text-xl font-normal text-gray-600;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
