@@ -1,0 +1,59 @@
+# GitHub Actions workflow to deploy Vite static site to Azure App Service using Zip Deploy
+# Secrets AZURE_ZIP_DEPLOY_USER and AZURE_ZIP_DEPLOY_PWD must be set in the repo settings
+
+name: Deploy to Azure App Service
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Vite project
+        run: npm run build
+
+      - name: Add web.config for SPA routing
+        run: |
+          echo '<?xml version="1.0" encoding="utf-8"?>
+          <configuration>
+            <system.webServer>
+              <rewrite>
+                <rules>
+                  <rule name="SPA" stopProcessing="true">
+                    <match url=".*" />
+                    <conditions logicalGrouping="MatchAll">
+                      <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                      <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Rewrite" url="/index.html" />
+                  </rule>
+                </rules>
+              </rewrite>
+            </system.webServer>
+          </configuration>' > dist/web.config
+
+      - name: Zip build output
+        run: cd dist && zip -r ../site.zip .
+
+      - name: Deploy to Azure App Service via Zip Deploy
+        env:
+          AZURE_ZIP_DEPLOY_USER: ${{ secrets.AZURE_ZIP_DEPLOY_USER }}
+          AZURE_ZIP_DEPLOY_PWD: ${{ secrets.AZURE_ZIP_DEPLOY_PWD }}
+        run: |
+          curl -X POST "https://mdconservation.scm.azurewebsites.net/api/zipdeploy" \
+            --user "$AZURE_ZIP_DEPLOY_USER:$AZURE_ZIP_DEPLOY_PWD" \
+            --data-binary "@site.zip"
