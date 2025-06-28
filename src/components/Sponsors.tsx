@@ -64,8 +64,8 @@ const sponsors = [
     website: "https://fzata.com"
   },
   {
-    name: "BetaTree",
-    description: "CS Consultancy",
-    website: "https://betatree.com"
+    name: "Betatree Corp",
+    description: "IT Consultancy",
+    website: "https://betatreecorp.com/"
   }
 ];
