@@ -24,12 +24,12 @@ export const Contact = () => {
             
             <div className="flex items-center mb-10">
               <Mail size={20} className="mr-3 text-emerald-400" />
-              <a href="mailto:joelarge111@gmail.com" className="text-lg hover:text-emerald-400 transition-colors">
-                joelarge111@gmail.com
+              <a href="mailto:maddiralanikhilr@gmail.com" className="text-lg hover:text-emerald-400 transition-colors">
+                maddiralanikhilr@gmail.com
               </a>
             </div>
             
-            <form action="mailto:joelarge111@gmail.com" method="POST" encType="text/plain" className="space-y-6">
+            <form action="mailto:maddiralanikhilr@gmail.com" method="POST" encType="text/plain" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
                 <input
