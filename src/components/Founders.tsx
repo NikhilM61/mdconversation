@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
-import nikhilFounder from '../nikhilFounder.jpg';
-import jeffFounder from '../jeffFounder.jpg';
 
 export const Founders = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -96,7 +94,7 @@ const founders = [
     name: "Nikhil Maddirala",
     role: "Co-Founder & Executive Director",
     bio: "A passionate environmentalist and tech enthusiast, Nikhil combines his love for nature with innovative solutions to address Maryland's conservation challenges.",
-    image: nikhilFounder,
+    image: "/nikhilFounder.jpg",
     email: "maddiralanikhilr@gmail.com",
     linkedin: "https://www.linkedin.com/in/nikhil-maddirala-345196240/",
     github: ""
@@ -105,7 +103,7 @@ const founders = [
     name: "Jefferson Feng",
     role: "Co-Founder & Technical Director",
     bio: "Jefferson brings his technical expertise and environmental passion together to develop sustainable solutions for Maryland's conservation efforts.",
-    image: jeffFounder,
+    image: "/jeffFounder.jpg",
     email: "jfeng3855@gmail.com",
     linkedin: "",
     github: ""
