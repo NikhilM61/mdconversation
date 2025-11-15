@@ -31,8 +31,8 @@ export const Hero = () => {
           <div className="flex flex-col md:flex-row items-center gap-12 max-w-6xl mx-auto mt-12">
             <div className="w-full md:w-1/2">
               <img 
-                src="https://images.pexels.com/photos/3732494/pexels-photo-3732494.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                alt="Ocean Preservation" 
+                src="/Gambrill1.jpg" 
+                alt="Gambrill State Park cleanup" 
                 className="w-full h-auto rounded-lg shadow-xl"
               />
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
+import SiteBanner from './components/SiteBanner';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
 import { Home } from './pages/Home';
@@ -15,7 +16,8 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-black text-white">
-        <Navbar />
+  <Navbar />
+  <SiteBanner />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<Articles />} />
